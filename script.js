@@ -3,8 +3,23 @@ let form = document.getElementsByClassName("todo_form")[0];
 let input = document.getElementById("todo_input");
 let error_msg = document.getElementById("error_msg");
 let clearAll = document.getElementById("btn_clear");
-
 let toDoList=[];
+
+// since toDoList was emptied upon window reload, this ensures todoList retrives values from
+// local storage if window is reloaded
+function retrieveTodoReload(){
+  if(localStorage.getItem("todos")==null){
+     toDoList=[];
+  }
+  
+  else{
+    toDoList=[...JSON.parse(localStorage.getItem("todos"))]
+    
+  }
+  return toDoList;
+};
+retrieveTodoReload()
+
 
 
 
@@ -27,6 +42,7 @@ function checkEmptyValue(check_value) {
 function printTodo() {
   if (localStorage.getItem("todos")) {
     parsedTodo = JSON.parse(localStorage.getItem("todos"));
+    
 
     parsedTodo.forEach((element) => {
       document.getElementById("todo_list").insertAdjacentHTML(
@@ -34,7 +50,7 @@ function printTodo() {
         `<li>
     <div class="todoDiv">
     
-    <div class="todoDivLeft"> <img src="./images/check_green.png" alt="" width="40px"> </div>
+    <div  class="todoDivLeft"> <img src="./images/check_green.png" alt="" width="40px"> </div>
     <div class="todoDivRight"><p>${element.toDoContent}</p></div>
     </div>
     </li>`
@@ -44,7 +60,7 @@ function printTodo() {
   }
 }
 
-function addTodotoStorage(toDo,toDoList) {
+function addTodotoStorage(toDo) {
   
   let todoObj = {
     toDoContent: " ",
@@ -52,6 +68,8 @@ function addTodotoStorage(toDo,toDoList) {
   };
 
   todoObj.toDoContent = toDo;
+
+  toDoList=retrieveTodoReload();
   toDoList.unshift(todoObj);
 
   if (toDo !== false) {
@@ -65,7 +83,7 @@ function addTodotoStorage(toDo,toDoList) {
 addTodo.addEventListener("click", function (event) {
   event.preventDefault();
   todoInput = checkEmptyValue(input.value);
-  addTodotoStorage(todoInput,toDoList);
+  addTodotoStorage(todoInput);
   form.reset();
   clearTodos();
   printTodo();
@@ -78,3 +96,9 @@ clearAll.addEventListener("click", function (event) {
   clearTodos();
   toDoList = [];
 });
+
+
+// document.getElementsByClassName("todoDivLeft").addEventListener("click",function (event){
+//   console.log(this.event);
+// })
+
