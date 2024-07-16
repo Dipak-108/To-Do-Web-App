@@ -134,7 +134,13 @@ margin: 2rem auto;
     margin-bottom: 0.5rem;
     box-shadow: 20px 10px 20px 1px rgba(0, 0, 0, 0.2);
     padding: 1rem;
+    border-radius: 20px;
+    /* cursor: pointer; */
     
+  }
+
+  .todoDiv:hover{
+    background-color: var(--clr-positive);
   }
   
   .todoDivLeft {
@@ -150,6 +156,7 @@ margin: 2rem auto;
   .todoDivRight p {
     text-align: left;
     padding: 0.5rem;
+    font-size: 1.3rem;
   }
 
 @media (width>=1000px) {
