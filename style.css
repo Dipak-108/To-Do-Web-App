@@ -82,6 +82,11 @@ body{
     color: var(--light-cream);
 
 }
+#error_msg{
+    color: var(--clr-negative);
+    text-align: center;
+    padding-top: 0.5rem;
+}
 
 
 .todo_container .todo_list_div{
@@ -90,6 +95,7 @@ max-height: 15rem;
 width: 80%;
 margin: 1rem auto;
 overflow: scroll;
+outline: 1px solid;
 }
 
 
