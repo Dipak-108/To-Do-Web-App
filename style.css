@@ -13,6 +13,10 @@
     box-sizing: border-box;
 }
 
+ul,li{
+    list-style-type: none;
+}
+
 body{
     background-color: var(--light-cream);
     display: flex;
@@ -28,6 +32,7 @@ body{
     box-shadow: 2px 2px 20px 1px rgba(0, 0, 0, 0.2);
     border-radius: 20px;
     min-height: 90lvh;
+    
 }
 
 .todo_container >*{
@@ -96,6 +101,7 @@ width: 80%;
 margin: 1rem auto;
 overflow: scroll;
 outline: 1px solid;
+padding-top: 1rem;
 }
 
 
@@ -103,6 +109,48 @@ outline: 1px solid;
 background-color: var(--clr-negative);
 margin: 2rem auto;
 }
+
+
+/* todo list css */
+.todoDivLeft{
+    /* height: 1000%; */
+    border-right: solid;
+    height: fit-content;
+  }
+  img {
+    display: block;
+    margin: auto;
+    object-fit: contain;
+    /* border: solid red; */
+    
+  
+  }
+  
+  .todoDiv {
+    /* border: solid #db1021; */
+    width: 90%;
+    margin: auto;
+    display: flex;
+    margin-bottom: 0.5rem;
+    box-shadow: 20px 10px 20px 1px rgba(0, 0, 0, 0.2);
+    padding: 1rem;
+    
+  }
+  
+  .todoDivLeft {
+    /* border: solid black; */
+    width: 20%;
+    cursor: pointer;
+  }
+  
+  .todoDivRight {
+    width: 80%;
+  }
+  
+  .todoDivRight p {
+    text-align: left;
+    padding: 0.5rem;
+  }
 
 @media (width>=1000px) {
     
